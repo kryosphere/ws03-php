@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use Error;
 use Framework\Database;
 use Framework\Validation;
 
@@ -86,9 +87,10 @@ class ListingController
         $requiredFields = [
             'title',
             'description',
-            'email',
+            'salary',
             'city',
-            'state'
+            'state',
+            'email'
         ];
 
         $errors = [];
@@ -104,7 +106,65 @@ class ListingController
             loadView('listings/create', ['errors' => $errors, 'listing' => $newListingData]);
         } else {
             //Submit data
-            echo "Success";
+
+            $fields = [];
+
+            foreach ($newListingData as $field => $value) {
+                $fields[] = $field;
+            }
+
+            $fields = implode(', ', $fields);
+
+            $value = [];
+            foreach ($newListingData as $field => $value) {
+                //Convert empty strings to null
+
+                if ($value === '') {
+                    $newListingData[$field] = null;
+                }
+
+                $values[] = ':' . $field;
+            }
+
+            $values = implode(', ', $values);
+
+            $query = "INSERT INTO listings ({$fields}) VALUES ({$values})";
+
+            $this->db->query($query, $newListingData);
+
+            redirect('/listings');
         }
+    }
+
+    /**
+     * Delete a listing
+     * 
+     * @param array $params
+     * 
+     * @return void
+     */
+
+    public function destroy($params)
+    {
+        $id = $params['id'];
+
+        $params = [
+            'id' => $id
+        ];
+
+        $listing = $this->db->query('SELECT * FROM listings WHERE id = :id', $params)->fetch();
+
+        if (!$listing) {
+            ErrorController::notFound('Listing not found');
+            return;
+        }
+
+        $this->db->query('DELETE FROM listings WHERE id = :id', $params);
+
+        //Set flash message
+
+        $_SESSION['success_message'] = 'Listing deleted successfully';
+
+        redirect('/listings');
     }
 }
