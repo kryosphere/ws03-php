@@ -35,7 +35,7 @@
   --color-tag-bg:       #869464;   /* Background ng mga tag/badge */
   --color-tag-text:     #ececec;   /* Text ng mga tag/badge */
   --color-footer:       #1c1c1c;   /* Footer background */
-  --showcase-overlay:   rgba(97, 97, 97, 0.5); /* Hero banner overlay
+  --showcase-overlay:   #61616180; /* Hero banner overlay
                                                0.0 = transparent
                                                0.9 = halos itim */
 }
