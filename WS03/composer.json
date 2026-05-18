@@ -1,0 +1,18 @@
+{
+
+    "name": "lanangeles/ws03-php",
+    "description": "Job seeker application",
+    "authors": [
+        {
+            "name": "Lan Angeles",
+            "email": "lanargied.angeles2004@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+
+}
