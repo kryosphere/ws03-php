@@ -25,13 +25,13 @@
 
 :root {
   --color-header:       #373737;   /* Header at navigation bar */
-  --color-accent:       #5b693b;   /* "Post a Job" button at mga highlight */
+  --color-accent:       #242e0e;   /* "Post a Job" button at mga highlight */
   --color-page-bg:      #F5F5F5;   /* Background ng buong page */
-  --color-card-bg:      #BDBDBD;   /* Background ng mga card/box */
+  --color-card-bg:      #bababa;   /* Background ng mga card/box */
   --color-heading:      #F5F5F5;   /* Kulay ng mga title at heading */
   --color-card-heading: #373737;
   --color-body-text:    #39452d;   /* Regular na body text */
-  --color-link:         #daeab0;   /* Mga clickable na links */
+  --color-link:         #c6d697;   /* Mga clickable na links */
   --color-tag-bg:       #869464;   /* Background ng mga tag/badge */
   --color-tag-text:     #ececec;   /* Text ng mga tag/badge */
   --color-footer:       #1c1c1c;   /* Footer background */
@@ -108,6 +108,18 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   color: var(--color-link) !important;
+}
+
+.text-contrast {
+  color: var(--color-body-text) !important;
+}
+
+.text-subtitle {
+  color: var(--color-tag-bg) !important;
+}
+
+.text-darker {
+  color: var(--color-footer) !important;
 }
 
 header {

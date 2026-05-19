@@ -23,8 +23,8 @@
             <?php foreach ($listings as $listing): ?>
                 <div class="rounded-lg shadow-md bg-white">
                     <div class="p-4">
-                        <h2 class="text-xl font-semibold"><?= $listing->title ?></h2>
-                        <p class="text-gray-700 text-lg mt-2">
+                        <h2 class="text-2xl font-semibold text-contrast"><?= $listing->title ?></h2>
+                        <p class="text-darker text-lg mt-2">
                             <?= $listing->description ?>
                         </p>
                         <ul class="my-4 bg-gray-100 p-4 rounded">

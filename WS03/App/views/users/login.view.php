@@ -4,7 +4,7 @@
 <!-- Login Form Box -->
 <div class="flex justify-center items-center mt-20">
     <div class="bg-white p-8 rounded-lg shadow-md w-full md:w-500 mx-6">
-        <h2 class="text-4xl text-center font-bold mb-4">Login</h2>
+        <h2 class="text-4xl text-center font-bold mb-4 text-contrast">Login</h2>
 
         <?= loadPartials('errors', [
             'errors' => $errors ?? []
@@ -32,7 +32,7 @@
 
             <p class="mt-4 text-gray-500">
                 Don't have an account?
-                <a class="text-blue-900" href="/auth/register">Register</a>
+                <a class="text-contrast" href="/auth/register">Register</a>
             </p>
         </form>
     </div>

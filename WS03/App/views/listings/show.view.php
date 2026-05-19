@@ -11,8 +11,8 @@ use Framework\Authorization;
     <?= loadPartials('message'); ?>
     <div class="flex justify-between items-center">
       <a class="block p-4 text-blue-700" href="/listings">
-        <i class="fa fa-arrow-alt-circle-left"></i>
-        Back To Listings
+        <i class="fa fa-arrow-alt-circle-left text-contrast"></i>
+        <span class="text-contrast">Back To Listings</span>
       </a>
       <div class="flex space-x-4 ml-4">
         <?php if (Authorization::isOwner($listing->user_id)) : ?>
@@ -27,8 +27,8 @@ use Framework\Authorization;
       </div>
     </div>
     <div class="p-4">
-      <h2 class="text-xl font-semibold"><?= $listing->title ?></h2>
-      <p class="text-gray-700 text-lg mt-2">
+      <h2 class="text-2xl font-semibold text-contrast"><?= $listing->title ?></h2>
+      <p class="text-darker text-lg mt-2">
         <?= $listing->description ?>
       </p>
       <ul class="my-4 bg-gray-100 p-4">
@@ -51,14 +51,14 @@ use Framework\Authorization;
 <section class="container mx-auto p-4">
   <h2 class="text-xl font-semibold mb-4">Job Details</h2>
   <div class="rounded-lg shadow-md bg-white p-4">
-    <h3 class="text-lg font-semibold mb-2 text-blue-500">
-      Job Requirements
+    <h3 class="text-lg font-semibold mb-2">
+      <span class="text-contrast">Job Requirements</span>
     </h3>
-    <p>
+    <p class="text-darker">
       <?= $listing->requirements ?>
     </p>
-    <h3 class="text-lg font-semibold mt-4 mb-2 text-blue-500">Benefits</h3>
-    <p><?= $listing->benefits ?></p>
+    <h3 class="text-lg font-semibold mt-4 mb-2 text-contrast">Benefits</h3>
+    <p class="text-darker"><?= $listing->benefits ?></p>
   </div>
   <p class="my-5">
     Put "Job Application" as the subject of your email and attach your
