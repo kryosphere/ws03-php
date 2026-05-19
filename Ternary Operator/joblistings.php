@@ -1,3 +1,7 @@
+Ternary Operators:
+151 - 153
+164 - 166
+
 <?php
 $listings = [
     [
