@@ -3,11 +3,11 @@
 $router->get('/', 'HomeController@index');
 $router->get('/listings', 'ListingController@index');
 $router->get('/listings/create', 'ListingController@create', ['auth']);
+$router->get('/listings/search', 'ListingController@search');
 $router->get('/listings/edit/{id}', 'ListingController@edit', ['auth']);
 $router->get('/listings/{id}', 'ListingController@show');
 $router->get('/auth/register', 'UserController@create', ['guest']);
 $router->get('/auth/login', 'UserController@login', ['guest']);
-$router->get('/listings/search', 'ListingController@search');
 
 $router->post('/listings', 'ListingController@store', ['auth']);
 $router->post('/auth/register', 'UserController@store', ['guest']);

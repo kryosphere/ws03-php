@@ -5,7 +5,18 @@
 <!-- Job Listings -->
 <section>
     <div class="container mx-auto p-4 mt-4">
-        <div class="text-center text-3xl mb-4 font-bold border border-gray-300 p-3">All Jobs</div>
+        <div class="text-center text-3xl mb-4 font-bold border border-gray-300 p-3">
+            <?php if (!empty($keywords) || !empty($location)): ?>
+
+                Search results for:
+
+                <?php if (!empty($keywords)): ?><?= htmlspecialchars($keywords) ?><?php endif; ?><?php if (!empty($keywords) && !empty($location)): ?>,<?php endif; ?><?php if (!empty($location)): ?> <?= htmlspecialchars($location) ?><?php endif; ?>
+
+            <?php else: ?>
+                All Jobs
+            <?php endif; ?>
+
+        </div>
         <?= loadPartials('message'); ?>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <!-- Job Listing 1: Software Engineer -->
