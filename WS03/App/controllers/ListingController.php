@@ -230,6 +230,11 @@ class ListingController
             return;
         }
 
+        if (!Authorization::isOwner($listing->user_id)) {
+            Session::setFlashMessage('error_message', 'You are not authorized to update this listing');
+            return redirect('/listings/' . $listing->id);
+        }
+
         $allowedFields = [
             'title',
             'description',
@@ -298,5 +303,29 @@ class ListingController
 
             redirect('/listings/' . $id);
         }
+    }
+
+    /**
+     * Search listings by keyword and location
+     * 
+     * @return void
+     */
+
+    public function search()
+    {
+        // inspectAndDie($_GET);
+        $keywords = isset($_GET['keywords']) ? trim($_GET['keywords']) : '';
+
+        $location = isset($_GET['location']) ? trim($_GET['location']) : '';
+
+        $query = "SELECT * FROM listings WHERE title LIKE :keywords";
+
+        $params = [
+            'keywords' => "%{$keywords}%"
+        ];
+
+        $listings = $this->db->query($query, $params)->fetchAll();
+
+        inspectAndDie($listings);
     }
 }
